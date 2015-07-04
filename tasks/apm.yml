@@ -1,0 +1,5 @@
+---
+
+- name: Install npm packages
+  shell: apm install {{ item }}
+  with_items: apm_packages

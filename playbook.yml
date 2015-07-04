@@ -4,47 +4,65 @@
   vars:
     applications:
       - alfred
-      - boxer
-      - cord
+      - jumpcut
+      - flux
       - firefox
       - google-chrome
-      - gpgtools
-      - handbrake
-      - hipchat
-      - kdiff3
-      - libreoffice
-      - limechat
-      - phpstorm
-      - mou
-      - parallels
-      - robomongo
-      - sequel-pro
-      - sonos
-      - spotify
-      - the-unarchiver
-      - transmit
-      - tunnelblick
-      - vagrant
-      - virtualbox
       - vlc
+      - google-drive
+      - atom
+      - virtualbox
+      - clamxav
+      - slack
+      - pgadmin
+      - vagrant
+      - sophos-anti-virus-home-edition
+      - iterm2
+      - dash
     application_dir: /Applications
     brews:
       - ack
-      - chromedriver
-      - docker
-      - hub
-      - ios-webkit-debug-proxy
-      - rsync
       - zsh
-    caskroom_dir: /usr/local/caskroom
+      - zsh-completions
+      - mongodb
+      - tree
+      - wget
+      - ssh-copy-id
+      - node
+      - redis
+      - mosh
+      - rsync
+    npm_packages:
+      - npm-check-updates
+      - httpster
+      - mocha
+      - grunt
+      - jscs
+      - jshint
+      - n
+    apm_packages:
+      - fancy-new-file
+      - clipboard-plus
+      - vim-mode
+      - vim-mode-clipboard-plus
+      - ex-mode
+      - linter
+      - linter-jscs
+      - linter-js-yaml
+      - linter-jshint
+      - git-plus
+    caskroom_dir: /opt/homebrew-cask/Caskroom
     dotfiles_dir: /Users/craig/Code/dotfiles
-    email: EMAIL_HERE
-    github_username: craigmarvelley
-    home_dir: /Users/craig
-    name: Craig Marvelley
+    dotfiles_repo: https://github.com/dylancwood/dotfiles
+    email: dwood@mrn.org
+    github_username: dylancwood
+    home_dir: /Users/dwood
+    name: Dylan Wood
     zsh_path: /usr/local/bin/zsh
 
   tasks:
     - include: tasks/homebrew.yml tags=homebrew
+    - include: tasks/npm.yml tags=npm
+    - include: tasks/apm.yml tags=apm
     - include: tasks/zsh.yml tags=zsh
     - include: tasks/dotfiles.yml tags=dotfiles

@@ -1,0 +1,4 @@
+---
+- name: Uninstall apps with brew-cask
+  shell: brew cask uninstall {{ item }} --appdir={{ application_dir }} --caskroom={{ caskroom_dir }}
+  with_items: applications
