@@ -36,8 +36,9 @@ npm_packages:
   - jscs
   - jshint
   - n
+  - hexo
 apm_packages:
-  - fancy-new-file
+  - advanced-new-file
   - clipboard-plus
   - vim-mode
   - vim-mode-clipboard-plus
