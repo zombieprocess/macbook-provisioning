@@ -1,0 +1,57 @@
+applications:
+  - alfred
+  - jumpcut
+  - flux
+  - firefox
+  - google-chrome
+  - vlc
+  - google-drive
+  - atom
+  - virtualbox
+  - clamxav
+  - slack
+  - pgadmin
+  - vagrant
+  - sophos-anti-virus-home-edition
+  - iterm2
+  - dash
+application_dir: /Applications
+brews:
+  - ack
+  - zsh
+  - zsh-completions
+  - mongodb
+  - tree
+  - wget
+  - ssh-copy-id
+  - node
+  - redis
+  - mosh
+  - rsync
+npm_packages:
+  - npm-check-updates
+  - httpster
+  - mocha
+  - grunt
+  - jscs
+  - jshint
+  - n
+apm_packages:
+  - fancy-new-file
+  - clipboard-plus
+  - vim-mode
+  - vim-mode-clipboard-plus
+  - ex-mode
+  - linter
+  - linter-jscs
+  - linter-js-yaml
+  - linter-jshint
+  - git-plus
+caskroom_dir: /opt/homebrew-cask/Caskroom
+dotfiles_dir: /Users/craig/Code/dotfiles
+dotfiles_repo: https://github.com/dylancwood/dotfiles
+email: dwood@mrn.org
+github_username: dylancwood
+home_dir: /Users/dwood
+name: "Dylan Wood"
+zsh_path: /usr/local/bin/zsh
