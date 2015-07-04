@@ -17,6 +17,6 @@
   shell: rcup -f -d {{ dotfiles_dir }}
 
 - name: Apply local git config
-  template: src=templates/gitconfig.local dest={{home_dir}}/.gitconfig.local
+  template: src=templates/gitconfig.local dest={{home_dir}}/.gitconfig
   tags:
     - gitconfig
