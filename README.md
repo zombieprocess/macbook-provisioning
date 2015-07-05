@@ -42,9 +42,10 @@ the original author's blog.
 1. Open Chrome again, and sign in to:
   1. email account(s)
   1. github
-1. Install 'Markdown Here' extension
+1. Sign in to Chrome to have your extensions populate automatically.
 
 ### Set up VPN
+
 1. Go to http://support.mrn.org and log in
 1. Click 'Online Support'
 1. Click 'Download'
@@ -53,21 +54,26 @@ the original author's blog.
 1. To connect, use `vpn.mrn.org`, and your Active Directory username/pwd
 
 ### Sign in to slack
+
 Our domain is mrncode.slack.com
 
 ### Set up spaces hotkeys
+
 1. Open *system preferences*
 1. Click on *keyboard*
 1. Click on *Shortcuts*
 1. Change the shortcut keys for `Move left a space` and `Move right a space`
 
 ### Install your SSH keys
+
 Just copy your ssh keys to `~/.ssh`, be sure to update privs to `0600`
 
 ### Add anyconnect and jumpcut to list of startup items
+
 System Preferences -> Users -> Login Items
 
 ### Get an Windows 10 VM machine running
+
 1. Download Windows 10 preview ISO (64 bit): http://windows.microsoft.com/en-us/windows/preview-iso
 1. Create a new Virtualbox VM with 2GB RAM and 16GB HD
 1. Start new VM and point to ISO file
