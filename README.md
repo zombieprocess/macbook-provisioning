@@ -42,6 +42,7 @@ the original author's blog.
 1. Open Chrome again, and sign in to:
   1. email account(s)
   1. github
+1. Install 'Markdown Here' extension
 
 ### Set up VPN
 1. Go to http://support.mrn.org and log in
