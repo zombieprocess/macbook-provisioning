@@ -10,11 +10,12 @@ applications:
   - virtualbox
   - clamxav
   - slack
-  - pgadmin
+  - pgadmin3
   - vagrant
   - sophos-anti-virus-home-edition
   - iterm2
   - dash
+  - nvalt
 application_dir: /Applications
 brews:
   - ack

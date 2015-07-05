@@ -68,9 +68,13 @@ Our domain is mrncode.slack.com
 
 Just copy your ssh keys to `~/.ssh`, be sure to update privs to `0600`
 
-### Add anyconnect and jumpcut to list of startup items
-
+### Add apps to list of startup items
 System Preferences -> Users -> Login Items
+1. Cisco AnyConnect
+1. Google Chrome
+1. Flux
+1. Jumpcut
+1. Slack
 
 ### Get an Windows 10 VM machine running
 
