@@ -29,6 +29,7 @@ brews:
   - redis
   - mosh
   - rsync
+  - couchdb
 npm_packages:
   - npm-check-updates
   - httpster
@@ -38,6 +39,7 @@ npm_packages:
   - jshint
   - n
   - hexo
+  - webpack
 apm_packages:
   - advanced-new-file
   - clipboard-plus
@@ -49,6 +51,9 @@ apm_packages:
   - linter-js-yaml
   - linter-jshint
   - git-plus
+  - markdown-preview-plus
+  - mathjax-wrapper
+  - docblockr
 caskroom_dir: /opt/homebrew-cask/Caskroom
 dotfiles_dir: /Users/craig/Code/dotfiles
 dotfiles_repo: https://github.com/dylancwood/dotfiles
