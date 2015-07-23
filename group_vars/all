@@ -30,6 +30,7 @@ brews:
   - mosh
   - rsync
   - couchdb
+  - mcrypt
 npm_packages:
   - npm-check-updates
   - httpster
