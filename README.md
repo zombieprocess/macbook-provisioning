@@ -17,10 +17,15 @@ the original author's blog.
 ## Running the playbook:
 
 1. Get this repo onto the machine you want to configure.
+1. Modify group_vars/all to have your username/email and desired packages.
 1. Install X-Code via the App Store
 1. Install the command line tools by opening a terminal and typing `xcode-select --install`
 1. Open the X-Code app, and agree to terms, and allow it to complete installation.
 1. Run `bootstrap.sh` to install ansible
+    Note: it may be necessary to manually install brew before running `bootstrap.sh`
+    Note: if you encounter permissions errors, re-run with `sudo`.
+    It will likely fail when brew attempts to install something as `sudo`, at which point re-run without sudo.
+    Wash-rinse-repeat until it runs to completion.
 1. Run `ansible-playbook -i hosts playbook.yml`
 
 ## Afterwards...
