@@ -4,5 +4,4 @@
     - include: tasks/homebrew.yml tags=homebrew
     - include: tasks/npm.yml tags=npm
     - include: tasks/apm.yml tags=apm
-    - include: tasks/zsh.yml tags=zsh
     - include: tasks/dotfiles.yml tags=dotfiles

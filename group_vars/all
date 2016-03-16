@@ -1,26 +1,23 @@
 applications:
-  - alfred
+  - atom
   - jumpcut
   - flux
   - firefox
   - google-chrome
   - vlc
   - google-drive
-  - atom
   - virtualbox
-  - clamxav
   - slack
   - pgadmin3
   - vagrant
-  - sophos-anti-virus-home-edition
+  - vagrant-manager
+  - otto
   - iterm2
   - dash
   - nvalt
 application_dir: /Applications
 brews:
   - ack
-  - zsh
-  - zsh-completions
   - mongodb
   - tree
   - wget
@@ -31,6 +28,7 @@ brews:
   - rsync
   - couchdb
   - mcrypt
+  - virtualbox-extension-pack
 npm_packages:
   - npm-check-updates
   - httpster
@@ -57,9 +55,8 @@ apm_packages:
   - docblockr
 caskroom_dir: /opt/homebrew-cask/Caskroom
 dotfiles_dir: /Users/craig/Code/dotfiles
-dotfiles_repo: https://github.com/dylancwood/dotfiles
-email: dwood@mrn.org
-github_username: dylancwood
-home_dir: /Users/dwood
-name: "Dylan Wood"
-zsh_path: /usr/local/bin/zsh
+dotfiles_repo: https://github.com/zombieprocess/dotfiles
+email: jragle@mrn.org
+github_username: zombieprocess
+home_dir: /Users/jragle
+name: "Jamin Ragle"
