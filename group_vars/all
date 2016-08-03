@@ -6,7 +6,6 @@ applications:
   - google-chrome
   - vlc
   - google-drive
-  - virtualbox
   - slack
   - pgadmin3
   - vagrant
@@ -23,7 +22,7 @@ homebrew_cask_packages:
   - slack
   - virtualbox
   - virtualbox-extension-pack
-  
+
 homebrew_packages:
   - ack
   - gpgtools
