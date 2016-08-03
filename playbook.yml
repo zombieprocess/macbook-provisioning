@@ -1,7 +1,18 @@
 ---
-- hosts: all
-  tasks:
-    - include: tasks/homebrew.yml tags=homebrew
-    - include: tasks/npm.yml tags=npm
-    - include: tasks/apm.yml tags=apm
-    - include: tasks/dotfiles.yml tags=dotfiles
+  - hosts: all
+    become_method: sudo
+    become_user: root
+    vars:
+      mac_user: jamin
+      full_name: "Jamin Ragle"
+      email_addr: jragle@mrn.org
+      github_username: zombieprocess
+      dotfiles_repo: "https://github.com/{{github_username}}/dotfiles"
+      home_dir: "/Users/{{mac_user}}"
+      dotfiles_dir: "{{home_dir}}/dotfiles"
+      caskroom_dir: /opt/homebrew-cask/Caskroom
+    tasks:
+      - include: tasks/homebrew.yml tags=homebrew
+      - include: tasks/apm.yml tags=apm
+      - include: tasks/dotfiles.yml tags=dotfiles
+      # - include: tasks/npm.yml tags=npm

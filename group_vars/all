@@ -11,34 +11,31 @@ applications:
   - pgadmin3
   - vagrant
   - vagrant-manager
-  - otto
   - iterm2
   - dash
   - nvalt
+  - docker
 application_dir: /Applications
-brews:
+
+homebrew_cask_packages:
+  - atom
+  - firefox
+  - slack
+  - virtualbox
+  - virtualbox-extension-pack
+  
+homebrew_packages:
   - ack
-  - mongodb
+  - gpgtools
   - tree
   - wget
   - ssh-copy-id
-  - node
-  - redis
   - mosh
   - rsync
-  - couchdb
   - mcrypt
-  - virtualbox-extension-pack
-npm_packages:
-  - npm-check-updates
-  - httpster
-  - mocha
-  - grunt
-  - jscs
-  - jshint
-  - n
-  - hexo
-  - webpack
+  - java
+  - htop
+
 apm_packages:
   - advanced-new-file
   - clipboard-plus
@@ -53,10 +50,14 @@ apm_packages:
   - markdown-preview-plus
   - mathjax-wrapper
   - docblockr
-caskroom_dir: /opt/homebrew-cask/Caskroom
-dotfiles_dir: /Users/craig/Code/dotfiles
-dotfiles_repo: https://github.com/zombieprocess/dotfiles
-email: jragle@mrn.org
-github_username: zombieprocess
-home_dir: /Users/jragle
-name: "Jamin Ragle"
+
+  npm_packages:
+    - npm-check-updates
+    - httpster
+    - mocha
+    - grunt
+    - jscs
+    - jshint
+    - n
+    - hexo
+    - webpack

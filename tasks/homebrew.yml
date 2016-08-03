@@ -14,12 +14,21 @@
   homebrew: name={{ item }} state=present
   with_items: brews
 
-- name: Check homebrew-cask is installed
+# I broke this file here, on. Need to test for old install, and no install.
+# If old_install, migration path, then continue.
+# If no_install, normal new install, then continue with packages.
+# https://github.com/caskroom/homebrew-cask#learn-more
+
+- name: Check if old homebrew-cask is installed
   stat: path=/usr/local/bin/brew-cask.rb
   register: brew_cask_installed
 
+- name: Clean old homebrew-cask install
+  shell:  brew untap phinze/cask; brew untap caskroom/cask; brew update
+  when: brew_cask_installed.stat.exists == true
+
 - name: Install homebrew-cask
-  shell: brew tap phinze/cask && brew install brew-cask
+  shell: brew tap caskroom/cask
   when: brew_cask_installed.stat.exists == false
 
 - name: Check for installed casks
@@ -32,3 +41,7 @@
   shell: brew cask install {{ item }} --appdir={{ application_dir }} --caskroom={{ caskroom_dir }}
   with_items: applications
   when: "item not in installed_applications.results|map(attribute='stdout')"
+
+# Brew can't do updates???
+- name: Install a bash script to handle brew updates
+  template: src=brew-update

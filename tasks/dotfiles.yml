@@ -1,4 +1,7 @@
 ---
+
+## Preserve with the vault, PGP and SSH keys
+
 - name: Check rcm is installed
   stat: path=/usr/local/bin/rcup
   register: rcm_installed
