@@ -1,0 +1,12 @@
+---
+  # http://docs.ansible.com/ansible/pip_module.html
+  #- name: ensure pip is installed
+
+  - name: ensure pip is at latest
+    pip: name=pip state=latest
+    become: yes
+
+  - name: ensure some PyPI packages (PyPI)
+    pip: name={{ item }} state=latest
+    with_items: "{{pip_packages}}"
+    become: yes
