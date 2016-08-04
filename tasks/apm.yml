@@ -1,5 +1,5 @@
 ---
-
-- name: Install apm packages
-  shell: apm install {{ item }}
-  with_items: apm_packages
+  # Atom package manager (apm) packages
+  - name: Install apm packages
+    shell: apm install {{ item }}
+    with_items: apm_packages
