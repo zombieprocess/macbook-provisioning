@@ -49,3 +49,6 @@ apm_packages:
   - markdown-preview-plus
   - mathjax-wrapper
   - docblockr
+
+pip_packages:
+  - pip
