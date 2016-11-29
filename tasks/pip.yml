@@ -1,12 +1,30 @@
 ---
   # http://docs.ansible.com/ansible/pip_module.html
   #- name: ensure pip is installed
+  # unfortunately a chicken and the egg issue,
+  # pip is likely to be installed if ansible is installed.
+  # See manual setup steps in the README.md.
 
   - name: ensure pip is at latest
     pip: name=pip state=latest
-    become: yes
 
-  - name: ensure some PyPI packages (PyPI)
+  # setuptools package gotcha
+  - name: test version of setuptools (pip)
+    stat: path=/Library/Python/2.7/site-packages/setuptools-18.5.0.dist-info
+    register: old_python_setuptools
+  - name: ensure newer version of setuptools (pip)
+    pip: name=setuptools state=latest extra_args='--user python'
+    when: old_python_setuptools.stat.exists
+
+  # six package gotcha
+  - name: test version of six (pip)
+    stat: path=/Library/Python/2.7/site-packages/six-1.4.1.dist-info
+    register: old_pthon_six
+  - name: ensure newer version of six (pip)
+    pip: name=six state=latest extra_args='--user python'
+    when: old_python_six.stat.exists
+
+  # typically will just update all pip packages on the list
+  - name: ensure some PyPI packages (pip)
     pip: name={{ item }} state=latest
     with_items: "{{pip_packages}}"
-    become: yes
