@@ -1,0 +1,23 @@
+---
+  # ensure some customizations in account
+  # http://docs.ansible.com/ansible/osx_defaults_module.html
+
+  # Configure locate command
+  - name: verify locate database
+    stat: path=/var/db/locate.database
+    register: locate_db
+  - name: enable locate database
+    command: launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+    args:
+      creates: /var/db/locate.database
+    become: yes
+    when: locate_db.stat.exists == false
+
+  # configure a screenshots directory to keep desktop cleaning
+  - name: ensure screenshots directory
+    file: path="{{home_dir}}/Desktop/screenshots" state=directory
+  - name: set default save location for screenshots
+    osx_defaults:
+      domain: com.apple.screencapture
+      key: location
+      value: "{{home_dir}}/Desktop/screenshots"
