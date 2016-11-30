@@ -5,9 +5,12 @@
 
   pip_packages:
     - ansible
+    - docker-py
+    - passlib
     - pip
     - setuptools
     - six
+    - virtualenv
 
   homebrew_packages:
     - ack
@@ -38,16 +41,13 @@
 
   # Atom Packages
   apm_packages:
-    - advanced-new-file
-    - clipboard-plus
-    - linter
-    - linter-jscs
-    - linter-js-yaml
-    - linter-jshint
-    - git-plus
-    - markdown-preview-plus
-    - mathjax-wrapper
     - docblockr
+    - linter-eslint
+    - git-plus
+    - markdown-preview
+    - mathjax-wrapper
+    #- activate-power-mode
+    #- vim-mode
     - todo-show
 
   # Primarily apps that we want to install via Apple App Store
