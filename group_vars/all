@@ -1,57 +1,58 @@
-pip_packages:
-  - ansible
-  - pip
-  - setuptools
-  - six
+---
 
-applications:
-  - atom
-  - jumpcut
-  - flux
-  - firefox
-  - google-chrome
-  - vlc
-  - google-drive
-  - slack
-  - pgadmin3
-  - vagrant
-  - vagrant-manager
-  - iterm2
-  - dash
-  - nvalt
-  - docker
-application_dir: /Applications
+  # sudo -H pip install -Iv ansible=2.1.0.0
+  ansible_version: 2.1.0.0
 
-homebrew_cask_packages:
-  - atom
-  - firefox
-  - slack
-  - virtualbox
-  - virtualbox-extension-pack
+  pip_packages:
+    - ansible
+    - pip
+    - setuptools
+    - six
 
-homebrew_packages:
-  - ack
-  - gpgtools
-  - tree
-  - wget
-  - ssh-copy-id
-  - mosh
-  - rsync
-  - mcrypt
-  - java
-  - htop
+  homebrew_packages:
+    - ack
+    - tree
+    - wget
+    - ssh-copy-id
+    - mosh
+    - rsync
+    - mcrypt
+    - htop
 
-apm_packages:
-  - advanced-new-file
-  - clipboard-plus
-  - vim-mode
-  - vim-mode-clipboard-plus
-  - ex-mode
-  - linter
-  - linter-jscs
-  - linter-js-yaml
-  - linter-jshint
-  - git-plus
-  - markdown-preview-plus
-  - mathjax-wrapper
-  - docblockr
+  homebrew_cask_packages:
+    - atom
+    - avast
+    - dash
+    - firefox
+    - flux
+    - google-chrome
+    - google-drive
+    - iterm2
+    - jumpcut
+    - nvalt
+    - slack
+    - vagrant
+    - vagrant-manager
+    - virtualbox
+    - virtualbox-extension-pack
+
+  # Atom Packages
+  apm_packages:
+    - advanced-new-file
+    - clipboard-plus
+    - linter
+    - linter-jscs
+    - linter-js-yaml
+    - linter-jshint
+    - git-plus
+    - markdown-preview-plus
+    - mathjax-wrapper
+    - docblockr
+    - todo-show
+
+  # Primarily apps that we want to install via Apple App Store
+  # Or other means....
+  application_dir: /Applications
+  applications:
+    - slack
+    - docker-for-mac
