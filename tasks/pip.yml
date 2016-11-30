@@ -26,5 +26,5 @@
 
   # typically will just update all pip packages on the list
   - name: ensure some PyPI packages (pip)
-    pip: name={{ item }} state=latest
+    pip: name={{ item }} state=latest extra_args='--user python'
     with_items: "{{pip_packages}}"
