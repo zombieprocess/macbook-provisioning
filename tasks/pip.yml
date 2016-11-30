@@ -8,21 +8,21 @@
   - name: ensure pip is at latest
     pip: name=pip state=latest
 
-  # setuptools package gotcha
+  # setuptools package gotcha (18.5.0 => 28.8.0+) "setuptools (18.5)"
   - name: test version of setuptools (pip)
-    stat: path=/Library/Python/2.7/site-packages/setuptools
-    register: old_python_setuptools
+    stat: path="{{home_dir}}/Library/Python/2.7/lib/python/site-packages/setuptools"
+    register: newer_python_setuptools
   - name: ensure newer version of setuptools (pip)
     pip: name=setuptools state=latest extra_args='--user python'
-    when: old_python_setuptools.stat.exists == false
+    when: newer_python_setuptools.stat.exists == false
 
-  # six package gotcha
+  # six package gotcha (1.4.1 => 1.10.0) "six (1.4.1)"
   - name: test version of six (pip)
-    stat: path=/Library/Python/2.7/site-packages/six
-    register: old_pthon_six
+    stat: path=/Library/Python/2.7/site-packages/six.py
+    register: newer_python_six
   - name: ensure newer version of six (pip)
     pip: name=six state=latest extra_args='--user python'
-    when: old_python_six.stat.exists == false
+    when: newer_python_six.stat.exists == false
 
   # typically will just update all pip packages on the list
   - name: ensure some PyPI packages (pip)
