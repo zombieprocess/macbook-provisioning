@@ -2,11 +2,11 @@
   ## Preserve with the vault, PGP and SSH keys
 
   - name: Apply local git config
-    template: src=templates/gitconfig.local dest={{home_dir}}/.gitconfig
+    template: src=templates/gitconfig.local dest="{{home_dir}}/.gitconfig"
     tags: gitconfig
 
   - name: Apply local bash_profile aliases
-    template: src=templates/bash_profile.j2 dest={{home_dir}}/.bash_profile
+    template: src=templates/bash_profile.j2 dest="{{home_dir}}/.bash_profile"
     tags: aliases
 
   ### @TODO rewrite this
