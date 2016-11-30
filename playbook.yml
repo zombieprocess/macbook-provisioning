@@ -12,8 +12,8 @@
       dotfiles_dir: "{{home_dir}}/dotfiles"
     tasks:
       - include: tasks/macos_customization.yml tags=macos
+      - include: tasks/dotfiles.yml tags=dotfiles
       - include: tasks/pip.yml tags=pip
       - include: tasks/homebrew.yml tags=homebrew
       - include: tasks/apm.yml tags=apm
-      - include: tasks/dotfiles.yml tags=dotfiles
       # - include: tasks/npm.yml tags=npm
