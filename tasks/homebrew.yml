@@ -8,7 +8,7 @@
   # - name: Check if old homebrew-cask is installed
   #   stat: path=/usr/local/bin/brew-cask.rb
   #   register: brew_cask_installed
-  - name: Clean old homebrew-cask install
+  - name: clean old homebrew-cask install
     shell: brew untap phinze/cask && brew untap caskroom/cask && brew uninstall --force brew-cask && brew cleanup && brew cask cleanup && brew update
     args:
       removes: /usr/local/bin/brew-cask.rb
@@ -22,17 +22,16 @@
 
   - name: Install some common brew packages (brew)
     homebrew: name={{ item }} state=latest
-    with_items: homebrew_packages
+    with_items: "{{ homebrew_packages }}"
 
   - name: Check for installed casks
     shell: brew cask list --appdir={{ application_dir }} | grep {{ item }}
     register: installed_applications
-    with_items: homebrew_cask_packages
+    with_items: "{{ homebrew_cask_packages }}"
     ignore_errors: true
-
   - name: Install apps with brew-cask
     shell: brew cask install {{ item }} --appdir={{ application_dir }}
-    with_items: homebrew_cask_packages
+    with_items: "{{ homebrew_cask_packages }}"
     when: "item not in installed_applications.results|map(attribute='stdout')"
 
   # @TODO: figure out how to do brew updates
