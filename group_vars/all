@@ -43,9 +43,9 @@
     - git-plus
     - markdown-preview
     - mathjax-wrapper
+    - todo-show
     #- activate-power-mode
     #- vim-mode
-    - todo-show
 
   # Primarily apps that we want to install via Apple App Store
   # Or other means....

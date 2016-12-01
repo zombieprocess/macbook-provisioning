@@ -31,6 +31,7 @@
     register: installed_applications
     with_items: "{{ homebrew_cask_packages }}"
     ignore_errors: true
+    changed_when: false
   - name: Install apps with brew-cask
     shell: brew cask install {{ item }} --appdir={{ application_dir }}
     with_items: "{{ homebrew_cask_packages }}"
