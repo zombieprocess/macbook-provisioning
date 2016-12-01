@@ -26,14 +26,22 @@
     with_items: "{{ homebrew_packages }}"
 
   # @TODO: not idempotent, a stat command might be better.
-  - name: Check for installed casks
-    shell: brew cask list --appdir={{ application_dir }} | grep {{ item }}
-    register: installed_applications
-    with_items: "{{ homebrew_cask_packages }}"
-    ignore_errors: true
-    changed_when: false
-  - name: Install apps with brew-cask
+  # - name: Check for installed casks
+  #   shell: brew cask list --appdir={{ application_dir }} | grep {{ item }}
+  #   register: installed_applications
+  #   with_items: "{{ homebrew_cask_packages }}"
+  #   ignore_errors: true
+  #   changed_when: false
+  # - name: Install apps with brew-cask
+  #   shell: brew cask install {{ item }} --appdir={{ application_dir }}
+  #   with_items: "{{ homebrew_cask_packages }}"
+  #   when: "item not in installed_applications.results|map(attribute='stdout')"
+
+  # idempotent version of the above
+  - name: install apps with brew-cask (brew)
     shell: brew cask install {{ item }} --appdir={{ application_dir }}
+    args:
+      creates: "/usr/local/Caskroom/{{ item }}/"
     with_items: "{{ homebrew_cask_packages }}"
     when: "item not in installed_applications.results|map(attribute='stdout')"
 
