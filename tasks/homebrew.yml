@@ -43,7 +43,6 @@
     args:
       creates: "/usr/local/Caskroom/{{ item }}/"
     with_items: "{{ homebrew_cask_packages }}"
-    when: "item not in installed_applications.results|map(attribute='stdout')"
 
   # @TODO: figure out how to do brew updates
   # - name: Install a bash script to handle brew updates
