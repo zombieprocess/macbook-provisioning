@@ -20,10 +20,12 @@
     args:
       creates: /usr/local/bin/brew
 
+  # Updates packages and updates homebrew first
   - name: Install some common brew packages (brew)
-    homebrew: name={{ item }} state=latest
+    homebrew: name={{ item }} state=latest update_homebrew=yes
     with_items: "{{ homebrew_packages }}"
 
+  # @TODO: not idempotent, a stat command might be better.
   - name: Check for installed casks
     shell: brew cask list --appdir={{ application_dir }} | grep {{ item }}
     register: installed_applications
