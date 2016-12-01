@@ -21,6 +21,7 @@
     - mcrypt
 
   homebrew_cask_packages:
+    - adobe-reader
     - atom
     - avast
     - dash
