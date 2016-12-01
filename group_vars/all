@@ -18,9 +18,7 @@
     - wget
     - ssh-copy-id
     - mosh
-    - rsync
     - mcrypt
-    - htop
 
   homebrew_cask_packages:
     - atom
