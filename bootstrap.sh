@@ -13,8 +13,7 @@ if [[ -x `which pip` && ! -x `which ansible` ]]; then
     sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
 fi
 
-echo 'Running Ansible to configure Dev machine'
-
-if [[ -x `which ansible` ]]; then
-    ansible-playbook -i hosts playbook.yml --ask-sudo-pass
-fi
+#echo 'Running Ansible to configure machine'
+#if [[ -x `which ansible` ]]; then
+#    ansible-playbook -K playbook.yml
+#fi

@@ -1,65 +1,58 @@
-applications:
-  - alfred
-  - jumpcut
-  - flux
-  - firefox
-  - google-chrome
-  - vlc
-  - google-drive
-  - atom
-  - virtualbox
-  - clamxav
-  - slack
-  - pgadmin3
-  - vagrant
-  - sophos-anti-virus-home-edition
-  - iterm2
-  - dash
-  - nvalt
-application_dir: /Applications
-brews:
-  - ack
-  - zsh
-  - zsh-completions
-  - mongodb
-  - tree
-  - wget
-  - ssh-copy-id
-  - node
-  - redis
-  - mosh
-  - rsync
-  - couchdb
-  - mcrypt
-npm_packages:
-  - npm-check-updates
-  - httpster
-  - mocha
-  - grunt
-  - jscs
-  - jshint
-  - n
-  - hexo
-  - webpack
-apm_packages:
-  - advanced-new-file
-  - clipboard-plus
-  - vim-mode
-  - vim-mode-clipboard-plus
-  - ex-mode
-  - linter
-  - linter-jscs
-  - linter-js-yaml
-  - linter-jshint
-  - git-plus
-  - markdown-preview-plus
-  - mathjax-wrapper
-  - docblockr
-caskroom_dir: /opt/homebrew-cask/Caskroom
-dotfiles_dir: /Users/craig/Code/dotfiles
-dotfiles_repo: https://github.com/dylancwood/dotfiles
-email: dwood@mrn.org
-github_username: dylancwood
-home_dir: /Users/dwood
-name: "Dylan Wood"
-zsh_path: /usr/local/bin/zsh
+---
+
+  # sudo -H pip install -Iv ansible=2.1.0.0
+  ansible_version: 2.1.0.0
+
+  pip_packages:
+    - ansible
+    - docker-py
+    - passlib
+    - pip
+    - setuptools
+    - six
+    - virtualenv
+
+  homebrew_packages:
+    - ack
+    - tree
+    - wget
+    - ssh-copy-id
+    - mosh
+    - mcrypt
+
+  homebrew_cask_packages:
+    - adobe-reader
+    - atom
+    - avast
+    - dash
+    - dropbox
+    - firefox
+    - flux
+    - google-chrome
+    - google-drive
+    - gpgtools
+    - iterm2
+    - jumpcut
+    - nvalt
+    - vagrant
+    - vagrant-manager
+    - virtualbox
+    - virtualbox-extension-pack
+
+  # Atom Packages
+  apm_packages:
+    - docblockr
+    - linter-eslint
+    - git-plus
+    - markdown-preview
+    - mathjax-wrapper
+    - todo-show
+    #- activate-power-mode
+    #- vim-mode
+
+  # Primarily apps that we want to install via Apple App Store
+  # Or other means....
+  application_dir: /Applications
+  applications:
+    - slack
+    - docker-for-mac

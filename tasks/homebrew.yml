@@ -1,34 +1,37 @@
 ---
-- name: Check Homebrew is installed
-  stat: path=/usr/local/bin/brew
-  register: brew_installed
+  # Need to test for old install, and no install.
+  # If old_install, migration path, then continue.
+  # If no_install, normal new install, then continue with packages.
+  # https://github.com/caskroom/homebrew-cask#learn-more
 
-- name: Install Homebrew
-  shell: ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  when: brew_installed.stat.exists == false
+  # https://github.com/caskroom/homebrew-cask/blob/master/doc/reporting_bugs/pre_bug_report.md
+  # - name: Check if old homebrew-cask is installed
+  #   stat: path=/usr/local/bin/brew-cask.rb
+  #   register: brew_cask_installed
+  - name: clean old homebrew-cask install
+    shell: brew untap phinze/cask && brew untap caskroom/cask && brew uninstall --force brew-cask && brew cleanup && brew cask cleanup && brew update
+    args:
+      removes: /usr/local/bin/brew-cask.rb
+    # when: brew_cask_installed.stat.exists == true
 
-- name: Tap homebrew/dupes
-  shell: brew tap homebrew/dupes
+  # Assumes clean brew environment from here on
+  - name: Install Homebrew
+    shell: ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    args:
+      creates: /usr/local/bin/brew
 
-- name: Install Homebrew libraries
-  homebrew: name={{ item }} state=present
-  with_items: brews
+  # Updates packages and updates homebrew first
+  - name: Install some common brew packages (brew)
+    homebrew: name={{ item }} state=latest update_homebrew=yes
+    with_items: "{{ homebrew_packages }}"
 
-- name: Check homebrew-cask is installed
-  stat: path=/usr/local/bin/brew-cask.rb
-  register: brew_cask_installed
+  # idempotent version brew-cask install apps
+  - name: install apps with brew-cask (brew)
+    shell: brew cask install {{ item }} --appdir={{ application_dir }}
+    args:
+      creates: "/usr/local/Caskroom/{{ item }}/"
+    with_items: "{{ homebrew_cask_packages }}"
 
-- name: Install homebrew-cask
-  shell: brew tap phinze/cask && brew install brew-cask
-  when: brew_cask_installed.stat.exists == false
-
-- name: Check for installed casks
-  shell: brew cask list --appdir={{ application_dir }} --caskroom={{ caskroom_dir}} | grep {{ item }}
-  register: installed_applications
-  with_items: applications
-  ignore_errors: true
-
-- name: Install apps with brew-cask
-  shell: brew cask install {{ item }} --appdir={{ application_dir }} --caskroom={{ caskroom_dir }}
-  with_items: applications
-  when: "item not in installed_applications.results|map(attribute='stdout')"
+  # @TODO: figure out how to do brew updates
+  # - name: Install a bash script to handle brew updates
+  #   template: src=brew-update
