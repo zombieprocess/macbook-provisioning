@@ -21,9 +21,8 @@
     - mcrypt
 
   homebrew_cask_packages:
-    - adobe-reader
     - atom
-    - avast
+    - avast-mac-security
     - dash
     - dropbox
     - firefox
