@@ -14,8 +14,6 @@ Additionally, I have pulled ideas/techniques from:
 Below are some notes on usage, as well as what else I have needed to do after running this playbook.
 
 
-
-
 # Todo
 
 1. Clean up brew and brew-cask installs.
@@ -26,9 +24,7 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 
 ## Manual Steps (prerequisites):
 
-1. Get this repo onto the machine you want to configure. (*traditional download if you don't have `git` on your system.*)
-1. Modify group_vars/all to have your username/email and desired packages.
-1. Install Xcode via the App Store
+1. Install **Xcode** via the **Apple App Store**
   - Install the command line tools by opening a terminal and typing
 
   <!-- language: lang-sh -->
@@ -43,16 +39,27 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 
   <!-- language: lang-sh -->
         xcode-select -p
-        => /Applications/Xcode.app/Contents/Developer
 
-1. ~~Open the Xcode app, and agree to terms, and allow it to complete installation.~~
+  **Output =>** `/Applications/Xcode.app/Contents/Developer`
+
+1. Get this **repo** onto the machine you want to configure. (_traditional download if you don't have `git` on your system._)
+
+  <!-- language: lang-sh -->
+       mkdir -p sandbox; cd sandbox;
+       git clone https://github.com/zombieprocess/macbook-provisioning.git
+
+1. Modify `playbook.yml` to have your username/email/etc and `group_vars/all` for adjusting desired packages.
+
+  <!-- language: lang-sh -->
+       vim playbook.yml;
+       vim group_vars/all
 
 ## Running the playbook:
 
-1. Run the following to install ansible
+1. Run the following to install *ansible*
 
   <!-- language: lang-sh -->
-        bootstrap.sh
+        sudo bash bootstrap.sh
 
     **Note:** it may be necessary to manually install brew before running `bootstrap.sh`
     If you encounter permissions errors, re-run with `sudo`.
@@ -68,13 +75,14 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 ### Set up Chrome
 
 1. Open Google Chrome
-1. Navigate to http://lastpass.com
+1. **Optional:** Navigate to http://lastpass.com
 1. Log in
 1. Install plugins in all browsers
 1. Open Chrome again, and sign in to:
   1. email account(s)
   1. github
 1. Sign in to Chrome to have your extensions populate automatically.
+1. **Ad blocker:** `uBlock Origin`
 
 ### Set up VPN
 
@@ -87,14 +95,7 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 
 ### Sign in to slack
 
-Our domain is mrncode.slack.com
-
-### Set up spaces hotkeys
-
-1. Open *system preferences*
-1. Click on *keyboard*
-1. Click on *Shortcuts*
-1. Change the shortcut keys for `Move left a space` and `Move right a space`
+Our domain is `mindresearchnetwork.slack.com`
 
 ### Install your SSH keys
 
@@ -102,13 +103,17 @@ Just copy your ssh keys to `~/.ssh`, be sure to update privs to `0600`
 
 ### Add apps to list of startup items
 System Preferences -> Users -> Login Items
-1. Cisco AnyConnect/OpenConnect
-1. Google Chrome
-1. ~~Flux~~
-1. ~~Jumpcut~~
+
 1. Slack
 
-### Get an Windows 10 VM machine running
+### Set up spaces hotkeys (optional)
+
+1. Open *system preferences*
+1. Click on *keyboard*
+1. Click on *Shortcuts*
+1. Change the shortcut keys for `Move left a space` and `Move right a space`
+
+### Get an Windows 10 VM machine running (optional)
 
 1. Download a Windows 10 image (64 bit): https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/mac/
 1. Create a new Virtualbox VM with 2GB RAM and 16GB HD
