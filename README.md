@@ -18,7 +18,6 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 
 # Todo
 
-1. Change screenshot default location. `mkdir -p /Users/<user>/Desktop/Screenshots; defaults write com.apple.screencapture location /Users/<user>/Desktop/Screenshots`
 1. Clean up brew and brew-cask installs.
 1. Clean up and discover how to install software from the Apple Store.
 1. Automatic updates for installed software.
