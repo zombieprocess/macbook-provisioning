@@ -51,7 +51,7 @@ Below are some notes on usage, as well as what else I have needed to do after ru
 1. Modify `playbook.yml` to have your username/email/etc and `group_vars/all` for adjusting desired packages.
 
   <!-- language: lang-sh -->
-       vim playbook.yml;
+       cd macbook-provisioning; vim playbook.yml;
        vim group_vars/all
 
 ## Running the playbook:
