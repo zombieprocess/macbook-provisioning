@@ -26,6 +26,7 @@
     - atom
     - avast-security
     - dash
+    - docker
     - dropbox
     - firefox
     - flux
@@ -56,4 +57,3 @@
     - slack
     - The Unarchiver
     - GIPHY CAPTURE
-    - docker-for-mac
