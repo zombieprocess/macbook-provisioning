@@ -31,6 +31,7 @@
     args:
       creates: "/usr/local/Caskroom/{{ item }}/"
     with_items: "{{ homebrew_cask_packages }}"
+    ignore_errors: yes
 
   # @TODO: figure out how to do brew updates
   # - name: Install a bash script to handle brew updates

@@ -1,7 +1,7 @@
 ---
 
   # sudo -H pip install -Iv ansible=2.1.3.0
-  ansible_version: 2.1.3.0
+  ansible_version: 2.3.2.0
 
   pip_packages:
     - ansible
@@ -19,17 +19,20 @@
     - ssh-copy-id
     - mosh
     - mcrypt
+    - nmap
+    - openssl
 
   homebrew_cask_packages:
     - atom
-    - avast-mac-security
+    - avast-security
     - dash
+    - docker
     - dropbox
     - firefox
     - flux
     - google-chrome
-    - google-drive
-    - gpgtools
+    - google-drive-file-stream
+    - gpg-suite
     - iterm2
     - jumpcut
     - nvalt
@@ -46,12 +49,11 @@
     - markdown-preview
     - mathjax-wrapper
     - todo-show
-    #- activate-power-mode
-    #- vim-mode
 
   # Primarily apps that we want to install via Apple App Store
   # Or other means....
   application_dir: /Applications
   applications:
     - slack
-    - docker-for-mac
+    - The Unarchiver
+    - GIPHY CAPTURE
