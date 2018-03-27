@@ -10,7 +10,7 @@ if [[ ! -x `which pip` ]]; then
 fi
 
 if [[ -x `which pip` && ! -x `which ansible` ]]; then
-    sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible
+    sudo CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments pip install ansible==2.3.3.0
 fi
 
 #echo 'Running Ansible to configure machine'
